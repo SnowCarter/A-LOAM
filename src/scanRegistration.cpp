@@ -132,6 +132,7 @@ void laserCloudHandler(const sensor_msgs::PointCloud2ConstPtr &laserCloudMsg)
     pcl::PointCloud<pcl::PointXYZ> laserCloudIn;
     pcl::fromROSMsg(*laserCloudMsg, laserCloudIn);
     std::vector<int> indices;
+    std::cout << "data in time:" << laserCloudMsg->header.stamp.toSec() << ", with size:" << laserCloudMsg->data.size() << std::endl; 
 
     pcl::removeNaNFromPointCloud(laserCloudIn, laserCloudIn, indices);
     removeClosedPointCloud(laserCloudIn, laserCloudIn, MINIMUM_RANGE);
@@ -475,7 +476,7 @@ int main(int argc, char **argv)
         return 0;
     }
 
-    ros::Subscriber subLaserCloud = nh.subscribe<sensor_msgs::PointCloud2>("/velodyne_points", 100, laserCloudHandler);
+    ros::Subscriber subLaserCloud = nh.subscribe<sensor_msgs::PointCloud2>("/points_raw", 100, laserCloudHandler);
 
     pubLaserCloud = nh.advertise<sensor_msgs::PointCloud2>("/velodyne_cloud_2", 100);
 

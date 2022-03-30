@@ -871,6 +871,22 @@ void process()
 			laserAfterMappedPath.header.frame_id = "/camera_init";
 			laserAfterMappedPath.poses.push_back(laserAfterMappedPose);
 			pubLaserAfterMappedPath.publish(laserAfterMappedPath);
+			std::ofstream outPoses_;
+			outPoses_.open("/home/snow/polyWorkSpace/compare_ws/src/A-LOAM/resultsOutput/poses_aloam.txt"); 
+			for(size_t i=0; i< laserAfterMappedPath.poses.size(); i++ ){
+				auto odom_tmp = laserAfterMappedPath.poses[i];
+				outPoses_ << std::fixed << odom_tmp.header.stamp.toSec() << " "
+						<< odom_tmp.pose.position.x << " "
+						<< odom_tmp.pose.position.y << " "
+						<< odom_tmp.pose.position.z << " "
+						<< odom_tmp.pose.orientation.x << " "
+						<< odom_tmp.pose.orientation.y << " "
+						<< odom_tmp.pose.orientation.z << " "
+						<< odom_tmp.pose.orientation.w << "\n";   				
+			}
+			outPoses_.close(); 
+			
+
 
 			static tf::TransformBroadcaster br;
 			tf::Transform transform;
@@ -884,6 +900,18 @@ void process()
 			q.setZ(q_w_curr.z());
 			transform.setRotation(q);
 			br.sendTransform(tf::StampedTransform(transform, odomAftMapped.header.stamp, "/camera_init", "/aft_mapped"));
+			//write pose file here
+			// if(outPoses_.is_open()){
+			// 	outPoses_ << std::fixed << odomAftMapped.header.stamp.toSec() << " "
+			// 			<< odomAftMapped.pose.pose.position.x << " "
+			// 			<< odomAftMapped.pose.pose.position.y << " "
+			// 			<< odomAftMapped.pose.pose.position.z << " "
+			// 			<< odomAftMapped.pose.pose.orientation.x << " "
+			// 			<< odomAftMapped.pose.pose.orientation.y << " "
+			// 			<< odomAftMapped.pose.pose.orientation.z << " "
+			// 			<< odomAftMapped.pose.pose.orientation.w << "\n"; 
+			// }
+			
 
 			frameCount++;
 		}
