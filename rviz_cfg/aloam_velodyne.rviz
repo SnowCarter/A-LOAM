@@ -8,10 +8,11 @@ Panels:
         - /Status1
         - /odometry1/odomPath1
         - /odometry1/PointCloud21
-        - /TF1
+        - /mapping1
+        - /mapping1/mappingPath1
         - /TF1/Frames1
         - /PointCloud21
-        - /PointCloud21/Status1
+        - /Odometry1
       Splitter Ratio: 0.5
     Tree Height: 728
   - Class: rviz/Selection
@@ -180,8 +181,8 @@ Visualization Manager:
           Head Diameter: 0.30000001192092896
           Head Length: 0.20000000298023224
           Length: 0.30000001192092896
-          Line Style: Lines
-          Line Width: 0.029999999329447746
+          Line Style: Billboards
+          Line Width: 0.30000001192092896
           Name: mappingPath
           Offset:
             X: 0
@@ -470,7 +471,7 @@ Visualization Manager:
           Topic: /lc_path
           Unreliable: false
           Value: false
-      Enabled: false
+      Enabled: true
       Name: mapping
     - Class: rviz/Group
       Displays:
@@ -629,25 +630,19 @@ Visualization Manager:
       Unreliable: false
       Value: false
     - Class: rviz/TF
-      Enabled: true
+      Enabled: false
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        aft_mapped:
-          Value: true
-        camera_init:
-          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        camera_init:
-          aft_mapped:
-            {}
+        {}
       Update Interval: 0
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -660,7 +655,7 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: ""
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Min Color: 0; 0; 0
@@ -675,6 +670,40 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
+      Value: false
+    - Angle Tolerance: 0.10000000149011612
+      Class: rviz/Odometry
+      Covariance:
+        Orientation:
+          Alpha: 0.5
+          Color: 255; 255; 127
+          Color Style: Unique
+          Frame: Local
+          Offset: 1
+          Scale: 1
+          Value: true
+        Position:
+          Alpha: 0.30000001192092896
+          Color: 204; 51; 204
+          Scale: 1
+          Value: true
+        Value: true
+      Enabled: true
+      Keep: 100
+      Name: Odometry
+      Position Tolerance: 0.10000000149011612
+      Shape:
+        Alpha: 1
+        Axes Length: 1
+        Axes Radius: 0.10000000149011612
+        Color: 255; 25; 0
+        Head Length: 0.30000001192092896
+        Head Radius: 0.10000000149011612
+        Shaft Length: 1
+        Shaft Radius: 0.05000000074505806
+        Value: Axes
+      Topic: /aft_mapped_to_init_high_frec
+      Unreliable: false
       Value: true
   Enabled: true
   Global Options:
@@ -704,25 +733,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 117.41929626464844
+      Distance: 21.089609146118164
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 30.24313735961914
-        Y: 2.941490650177002
-        Z: -2.309786558151245
+        X: 5.381242752075195
+        Y: -19.351734161376953
+        Z: -2.3097856044769287
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6997967958450317
+      Pitch: 0.9047965407371521
       Target Frame: body
       Value: XYOrbit (rviz)
-      Yaw: 5.479998588562012
+      Yaw: 4.493142127990723
     Saved: ~
 Window Geometry:
   Displays:
