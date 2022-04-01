@@ -10,6 +10,7 @@ Panels:
         - /odometry1/PointCloud21
         - /mapping1
         - /mapping1/mappingPath1
+        - /mapping1/allMapCloud1
         - /TF1/Frames1
         - /PointCloud21
         - /Odometry1
@@ -199,14 +200,14 @@ Visualization Manager:
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
-            Max Value: 10
-            Min Value: -10
+            Max Value: 1.802320957183838
+            Min Value: -3.6420576572418213
             Value: true
           Axis: Z
           Channel Name: intensity
           Class: rviz/PointCloud2
           Color: 255; 255; 255
-          Color Transformer: FlatColor
+          Color Transformer: AxisColor
           Decay Time: 0
           Enabled: true
           Invert Rainbow: false
@@ -218,7 +219,7 @@ Visualization Manager:
           Selectable: true
           Size (Pixels): 3
           Size (m): 0.05000000074505806
-          Style: Flat Squares
+          Style: Squares
           Topic: /laser_cloud_map
           Unreliable: false
           Use Fixed Frame: true
@@ -236,7 +237,7 @@ Visualization Manager:
           Color: 255; 255; 255
           Color Transformer: FlatColor
           Decay Time: 0
-          Enabled: true
+          Enabled: false
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Min Color: 0; 0; 0
@@ -251,7 +252,7 @@ Visualization Manager:
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
-          Value: true
+          Value: false
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
@@ -733,25 +734,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 21.089609146118164
+      Distance: 291.0556335449219
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 5.381242752075195
-        Y: -19.351734161376953
-        Z: -2.3097856044769287
+        X: 17.29109001159668
+        Y: -26.37321662902832
+        Z: -2.309783458709717
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.9047965407371521
+      Pitch: 1.3097964525222778
       Target Frame: body
       Value: XYOrbit (rviz)
-      Yaw: 4.493142127990723
+      Yaw: 3.323139190673828
     Saved: ~
 Window Geometry:
   Displays:

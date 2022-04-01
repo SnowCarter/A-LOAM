@@ -907,7 +907,7 @@ void process()
 			q.setY(q_w_curr.y());
 			q.setZ(q_w_curr.z());
 			transform.setRotation(q);
-			br.sendTransform(tf::StampedTransform(transform, odomAftMapped.header.stamp, "/camera_init", "/aft_mapped"));
+			br.sendTransform(tf::StampedTransform(transform, odomAftMapped.header.stamp, "map", "base_link"));
 			//write pose file here
 			// if(outPoses_.is_open()){
 			// 	outPoses_ << std::fixed << odomAftMapped.header.stamp.toSec() << " "
