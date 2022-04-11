@@ -61,6 +61,7 @@
 #include "lidarFactor.hpp"
 #include "aloam_velodyne/common.h"
 #include "aloam_velodyne/tic_toc.h"
+#include <pcl/io/ply_io.h>
 
 
 int frameCount = 0;
@@ -840,7 +841,9 @@ void process()
 				pcl::toROSMsg(laserCloudMap, laserCloudMsg);
 				laserCloudMsg.header.stamp = ros::Time().fromSec(timeLaserOdometry);
 				laserCloudMsg.header.frame_id = "/camera_init";
-				pubLaserCloudMap.publish(laserCloudMsg);
+				pubLaserCloudMap.publish(laserCloudMsg);				
+				std::string writePath = "/home/snow/polyWorkSpace/compare_ws/src/A-LOAM/resultsOutput/map.ply";
+				pcl::io::savePLYFileBinary(writePath, laserCloudMap);
 			}
 
 			int laserCloudFullResNum = laserCloudFullRes->points.size();
